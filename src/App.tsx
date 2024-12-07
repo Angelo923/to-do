@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './global.css';
+import styles from './App.module.css';
+import Task from "./components/Task.tsx";
+import toDoLogo from "./assets/Logo.svg";
+import {CgAdd} from "@react-icons/all-files/cg/CgAdd";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+const App = () => {
+    return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+        <header className={styles.header}>
+            <img src={toDoLogo} alt="logo"/>
+        </header>
+        <div className={styles.taskSubmit}>
+            <form>
+                <input
+                    type={'text'}
+                    placeholder="Adicione uma nova tarefa"
+                >
+                </input>
+            </form>
+            <button type="submit">
+                Criar <CgAdd />
+            </button>
+        </div>
+        <main className={styles.taskArea}>
+            <div className={styles.taskCreated}>
+                Tarefas criadas
+            </div>
+            <div className={styles.taskFinished}>
+                Tarefas Concluídas
+            </div>
+        </main>
 
-export default App
+        <footer>
+            <Task
+                id="1ab"
+                content="Fazer o Desafio - 01"
+            />
+        </footer>
+
+    </>
+    );
+};
+
+export default App;

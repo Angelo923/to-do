@@ -1,0 +1,19 @@
+.task {
+
+}
+
+.taskCreated {
+    align-items: end;
+    justify-items: end;
+
+}
+
+.taskFinished {
+
+}
+
+.taskSubmit {
+    align-items: center;
+    justify-items: center;
+}
+
