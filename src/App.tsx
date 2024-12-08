@@ -18,25 +18,32 @@ const App = () => {
                 >
                 </input>
             </form>
-            <button type="submit">
-                Criar <CgAdd />
+            <button className={styles.buttonTask} type="submit">
+                Criar <CgAdd size={24} />
             </button>
         </div>
-        <main className={styles.taskArea}>
-            <div className={styles.taskCreated}>
-                Tarefas criadas
+        <div className={styles.taskArea}>
+            <header className={styles.taskList}>
+                <div>
+                    Tarefas criadas
+                </div>
+                <div>
+                    Tarefas Concluídas
+                </div>
+            </header>
+            <div className={styles.taskRow}>
+                <Task
+                    id="1ab"
+                    content="Fazer o Desafio - 01"
+                />
+                <Task
+                    id="1ab"
+                    content="Fazer o Desafio - 01"
+                />
             </div>
-            <div className={styles.taskFinished}>
-                Tarefas Concluídas
-            </div>
-        </main>
 
-        <footer>
-            <Task
-                id="1ab"
-                content="Fazer o Desafio - 01"
-            />
-        </footer>
+        </div>
+
 
     </>
     );

@@ -1,17 +1,24 @@
 import {ITaskform} from "../CreateUpdate/iterface.ts";
-import styles from "./Task.module.css"
-import cliBoard from "../assets/Clipboard.svg";
+import {CgTrash} from "@react-icons/all-files/cg/CgTrash";
+import styles from  './Task.module.css'
 
 const Task = (props: ITaskform) => {
     return (
-        <article className={styles.task}>
-
-            <div className={styles.taskContent}>
-                <img src={cliBoard} />
+        <>
+            <div>
+                <input className={styles.inputRadio}
+                    type={"radio"}></input>
             </div>
-
-        </article>
+            <div className={styles.taskContainer}>
+                <p>CONSEGUIR FAZER A PORRA DO DESAFIO 1</p>
+            </div>
+            <div className={styles.deleteTask}>
+               <button title="Deletar tarefa">
+                   <CgTrash size={24}/>
+               </button>
+            </div>
+        </>
     );
 };
 
-export default Task
+export default Task;

@@ -1,19 +1,22 @@
-.task {
-
-}
-
-.taskCreated {
-    align-items: end;
-    justify-items: end;
-
-}
-
-.taskFinished {
-
-}
-
 .taskSubmit {
     align-items: center;
     justify-items: center;
 }
 
+.inputRadio {
+    transform: scale(1.5);
+    position: initial;
+
+}
+
+.taskContainer {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as divs se movam para a linha abaixo */
+    gap: 1rem; /* Espaçamento entre linhas e colunas */
+}
+
+.deleteTask button {
+    background: transparent;
+    border: 0;
+    color: var(--gray-300);
+}
