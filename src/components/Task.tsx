@@ -2,6 +2,7 @@ import {ITaskform} from "../CreateUpdate/iterface.ts";
 import {CgTrash} from "@react-icons/all-files/cg/CgTrash";
 import styles from  './Task.module.css'
 
+
 const Task = (props: ITaskform) => {
     return (
         <>

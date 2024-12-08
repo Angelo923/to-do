@@ -1,11 +1,8 @@
-.taskSubmit {
-    align-items: center;
-    justify-items: center;
-}
-
 .inputRadio {
     transform: scale(1.5);
     position: initial;
+    line-height: 0;
+    border-radius: 2px;
 
 }
 
@@ -19,4 +16,11 @@
     background: transparent;
     border: 0;
     color: var(--gray-300);
+    line-height: 0;
+    border-radius: 2px;
+}
+
+.deleteTask button:hover {
+    color: var(--danger);
+
 }
