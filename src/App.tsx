@@ -6,15 +6,15 @@ import {CgAdd} from "@react-icons/all-files/cg/CgAdd";
 import {useState} from "react";
 
 const App = () => {
-    const tasks = useState([
+    const [tasks, setTasks] = useState([
         1,
         2,
     ])
     function handleCreateNewtask () {
         event.preventDefault()
-        tasks.push(3);
+        
+        setTasks([1, 2, 3]);
 
-        console.log(tasks);
     }
     return (
     <>
