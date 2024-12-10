@@ -8,11 +8,10 @@ import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 
 const App = () => {
-    const [tasks, setTasks] = useState([''])
+    const [tasks, setTasks] = useState([
+        'Terminar o desafio 1 do Curso de ReactJs da RocketSeat'])
 
     const [newTask, setNewTask] = useState('');
-
-    const taskId = uuidv4();
 
     function handleCreateNewtask () {
         event.preventDefault();
@@ -59,9 +58,10 @@ const App = () => {
             </div>
             <div className={styles.taskArea2}>
                 {tasks.map(task => {
+                    const taskId = uuidv4();
                     return <Task
-                        content={task}
                         id={taskId}
+                        content={task}
                     />
                 })}
             </div>
