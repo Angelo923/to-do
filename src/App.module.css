@@ -60,7 +60,7 @@ form {
 .taskArea {
     background: var(--gray-600);
     margin: 0.5rem 30rem 0.5rem 30rem;
-    border-bottom: solid 1px var(--gray-300);
+    border-bottom: solid 1px var(--gray-400);
 }
 
 .taskArea2 {
@@ -87,4 +87,21 @@ footer {
 
 .taskFinished {
     color: var(--purple);
+}
+
+.clipBoard {
+    margin-top: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clipBoard img {
+    margin-bottom: 2rem;
+}
+
+.clipBoard > p:first-of-type {
+    font-weight: bold;
 }

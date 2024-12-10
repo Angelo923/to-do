@@ -1,9 +1,12 @@
 import {ITaskform} from "../CreateUpdate/iterface.ts";
 import {CgTrash} from "@react-icons/all-files/cg/CgTrash";
 import styles from  './Task.module.css'
+import { v4 as uuidv4 } from 'uuid';
 
 
-const Task = (props: ITaskform) => {
+
+const Task = ({content}: ITaskform) => {
+    const taskId = uuidv4();
     return (
         <>
             <div className={styles.taskFather}>
@@ -12,7 +15,7 @@ const Task = (props: ITaskform) => {
                            type={"radio"}></input>
                 </div>
                 <div className={styles.taskContainer}>
-                    <p>CONSEGUIR FAZER A PORRA DO DESAFIO 1</p>
+                    <p>{content}</p>
                 </div>
                 <div className={styles.deleteTask}>
                     <button title="Deletar tarefa">
