@@ -1,8 +1,8 @@
 .header {
-    background: var(--gray-700);
     display: flex;
     justify-content: center;
     padding: 3.75rem 0;
+    background: var(--gray-900);
 }
 
 .header img {
@@ -16,61 +16,66 @@
 }
 
 .taskSubmit {
-    margin-top: -1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+    margin: -1.5rem 30rem 0.5rem 30rem; /* Margens conforme necessário */
+    display: flex; /* Mantém os elementos dentro do pai em linha */
+    justify-content: center; /* Centraliza os filhos horizontalmente na linha */
 }
 
+/* Formulário deve ter o esquema flex, garantindo que ele permaneça em linha */
 form {
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* Mantém o input e botão na mesma linha */
+    align-items: center; /* Alinha verticalmente os elementos no centro */
+    gap: 1rem; /* Espaçamento fixo entre os elementos */
+    width: 100%; /* Dê uma largura total ao formulário */
 }
 
 .inputForm {
-    padding: 1rem 1.5rem;
+    flex: 1; /* Permite que o input ocupe todo o espaço disponível */
+    height: 50px; /* Altura uniforme */
+    font-size: 16px;
     border-radius: 8px;
+    font-weight: bold;
     color: var(--gray-100);
     background-color: var(--gray-500);
-    font-weight: bold;
+    border: none;
+    padding: 0 1rem;
+    margin: 0; /* Remove margens indesejadas */
 }
 
 .buttonTask {
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--blue);
-    color: var(--gray-100);
+    color: #ffffff;
+    border-radius: 8px;
+    height: 50px;
+    padding: 0 1rem;
     font-weight: bold;
-    cursor: pointer;
+    border: none;
+    gap: 0.3rem;
+    margin: 0; /* Remove margens indesejadas */
+}
+
+.taskArea {
+    background: var(--gray-600);
+    margin: 0.5rem 30rem 0.5rem 30rem;
+    border-bottom: solid 1px var(--gray-300);
+}
+
+.taskArea2 {
+    margin: 0.5rem 30rem 0.5rem 30rem;
 }
 
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--gray-300);
     height: 50rem;
-}
-
-.taskArea {
-    border: 1px solid #ffffff;
-    height: 50rem;
-}
-
-.taskRow {
-    border: 1px solid var(--gray-300);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .taskList {
-    padding: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;

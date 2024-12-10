@@ -24,3 +24,13 @@
     color: var(--danger);
 
 }
+
+.taskFather {
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background: var(--gray-500);
+    margin: 0.5rem 0 0.5rem 0;
+}

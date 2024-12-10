@@ -17,42 +17,39 @@ const App = () => {
 
     }
     return (
-    <>
-        <header className={styles.header}>
-            <img src={toDoLogo} alt="logo"/>
-        </header>
-        <div className={styles.taskSubmit}>
-            <form onSubmit={handleCreateNewtask}>
-                <input className={styles.inputForm}
-                       type='tex'
-                       placeholder="Adicione uma nova tarefa"
-                >
-                </input>
-                <button className={styles.buttonTask} type="submit">
-                    Criar <CgAdd size={24}/>
-                </button>
-            </form>
-
-        </div>
-        <div className={styles.taskArea}>
-            <header className={styles.taskList}>
-                <div className={styles.taskCreated}>
-                    Tarefas criadas
-                </div>
-                <div className={styles.taskFinished}>
-                    Tarefas Concluídas
-                </div>
+        <>
+            <header className={styles.header}>
+                <img src={toDoLogo} alt="logo"/>
             </header>
-            <div className={styles.taskRow}>
+            <div className={styles.taskSubmit}>
+                <form onSubmit={handleCreateNewtask}>
+                    <input className={styles.inputForm}
+                           type='text'
+                           placeholder="Adicione uma nova tarefa"
+                    />
+                    <button className={styles.buttonTask} type="submit">
+                        Criar <CgAdd size={24}/>
+                    </button>
+                </form>
+            </div>
+            <div className={styles.taskArea}>
+                <header className={styles.taskList}>
+                    <div className={styles.taskCreated}>
+                        Tarefas criadas
+                    </div>
+                    <div className={styles.taskFinished}>
+                        Tarefas Concluídas
+                    </div>
+                </header>
+            </div>
+            <div className={styles.taskArea2}>
                 {tasks.map(task => {
-                    return <Task />
+                    return <Task/>
                 })}
             </div>
 
-        </div>
 
-
-    </>
+        </>
     );
 };
 
