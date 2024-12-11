@@ -39,7 +39,7 @@ form {
     background-color: var(--gray-500);
     border: none;
     padding: 0 1rem;
-    margin: 0; /* Remove margens indesejadas */
+    margin: 0; /* Remove margens indesejadas*/
 }
 
 .buttonTask {
@@ -55,6 +55,7 @@ form {
     border: none;
     gap: 0.3rem;
     margin: 0; /* Remove margens indesejadas */
+    cursor: pointer;
 }
 
 .taskArea {

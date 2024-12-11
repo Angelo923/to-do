@@ -1,15 +1,55 @@
-.inputRadio {
-    transform: scale(1.5);
-    position: initial;
-    line-height: 0;
-    border-radius: 2px;
+.taskFather {
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--gray-500);
+    margin: 0.5rem 0 0.5rem 0;
+}
 
+.taskFather:hover {
+    border: 1px solid var(--purple);
+}
+
+.inputCheckBox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 2px solid var(--blue);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent; /* Fundo inicial transparente */
+    position: relative; /* Necessário para o pseudo-elemento */
+}
+
+.inputCheckBox:checked {
+    background-color: var(--purple-dark); /* Fundo ao ser selecionado */
+    border-color: var(--purple-dark);
+}
+
+/* Pseudo-elemento para o "V" de checked */
+.inputCheckBox:checked::after {
+    content: ''; /* Elemento vazio para representar o "V" */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px; /* Ajuste do tamanho do "V" */
+    height: 4px;
+    border: solid white; /* Cor do "V" */
+    border-width: 0 0 2px 2px; /* Apenas bordas inferiores e esquerdas */
+    transform: translate(-50%, -50%) rotate(-45deg); /* Centraliza e rotaciona */
 }
 
 .taskContainer {
     display: flex;
     flex-wrap: wrap; /* Permite que as divs se movam para a linha abaixo */
     gap: 1rem; /* Espaçamento entre linhas e colunas */
+    padding: 0 1rem 0 1rem;
 }
 
 .deleteTask button {
@@ -18,6 +58,9 @@
     color: var(--gray-300);
     line-height: 0;
     border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    vertical-align: middle;
 }
 
 .deleteTask button:hover {
@@ -25,12 +68,3 @@
 
 }
 
-.taskFather {
-    border: 1px solid var(--gray-300);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    background: var(--gray-500);
-    margin: 0.5rem 0 0.5rem 0;
-}

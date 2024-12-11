@@ -17,9 +17,14 @@ const Task = ({content, onDeleteTask}: ITaskform) => {
         <>
             <div className={styles.taskFather}>
                 <div>
-                    <input onClick={handleCompletedTask}
-                        className={styles.inputRadio}
-                           type={"radio"}></input>
+                    <input
+                        onClick={handleCompletedTask}
+                        className={styles.inputCheckBox}
+                        type={"checkbox"}
+                        title="Selecionar Tarefa"
+                    >
+
+                    </input>
                 </div>
                 <div className={styles.taskContainer}>
                     <p>{content}</p>
