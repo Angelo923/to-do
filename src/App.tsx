@@ -4,36 +4,59 @@ import Task from "./components/Task.tsx";
 import toDoLogo from "./assets/Logo.svg";
 import clipBoard from "./assets/Clipboard.svg"
 import {CgAdd} from "@react-icons/all-files/cg/CgAdd";
-import {useState} from "react";
+import React, {useState} from "react";
 import {v4 as uuidv4} from "uuid";
-import {ITaskform} from "./CreateUpdate/iterface.ts";
-
-const taskId = uuidv4();
+import {ITaskform} from "./CreateUpdate/interface.ts";
 
 const App = () => {
     const [tasks, setTasks] = useState<ITaskform[]>([])
     const [newTask, setNewTask] = useState('');
+    const [completedTasksCount, setCompletedTasksCount] = useState(0);
 
-    function handleCreateNewtask () {
+
+
+    function handleCreateNewtask (event: React.FormEvent) {
         event.preventDefault();
 
-        setTasks([...tasks, newTask]);
+        // Adiciona um objeto de tarefa com id
+        const taskWithId = {
+            id: uuidv4(), // Gera um ID único
+            content: newTask, // Supondo que sua interface tenha um campo 'content'
+            completed: false,
+        };
+
+        setTasks([...tasks, taskWithId]);
         setNewTask('');
     }
 
-    function handleNewTaskChange() {
+    function handleNewTaskChange(event: React.ChangeEvent<HTMLInputElement>) {
         setNewTask(event.target.value);
     }
 
-    function deleteTask (taskToDelete) {
-        const tasksWithoutDeletedOne = tasks.filter(tasks => {
-            return tasks !== taskToDelete;
-        })
-
-        setTasks(tasksWithoutDeletedOne);
+    function updateCompletedTasksCount(updatedTasks) {
+        const completedTasks = updatedTasks.filter(task => task.completed);
+        setCompletedTasksCount(completedTasks.length);
     }
 
-    return (
+    function deleteTask(taskToDelete: ITaskform) {
+        const tasksWithoutDeletedOne = tasks.filter(task =>
+            task.id !== taskToDelete.id // Filtra pelo ID
+        );
+
+        setTasks(tasksWithoutDeletedOne);
+        updateCompletedTasksCount(tasksWithoutDeletedOne); // Atualiza a contagem de tarefas concluídas
+    }
+
+    function toggleCompleteTask(taskToToggle: ITaskform) {
+        const updatedTasks  = tasks.map(task =>
+            task.id === taskToToggle.id ? {...task, completed: !task.completed} : task );
+        setTasks(updatedTasks);
+
+        // Update the completed tasks count
+        const completedTasks = updatedTasks.filter(task => task.completed);
+        setCompletedTasksCount(completedTasks.length);
+    }
+        return (
 
         <>
             <header className={styles.header}>
@@ -62,7 +85,9 @@ const App = () => {
                         Tarefas criadas <span>{tasks.length}</span>
                     </div>
                     <div className={styles.taskFinished}>
-                        Tarefas Concluídas <span>{tasks.length}</span>
+                        Tarefas Concluídas <span>{tasks.length > 0
+                        ? `${completedTasksCount} de ${tasks.length}`
+                        : completedTasksCount}</span>
                     </div>
                 </header>
                 </div>
@@ -70,10 +95,11 @@ const App = () => {
                 <div className={styles.taskArea2}>
                     {tasks.map(task => (
                         <Task
-                            id={task}
-                            key={task}
-                            content={task}
-                            onDeleteTask={deleteTask}
+                            key={task.id}
+                            content={task.content}
+                            onDeleteTask={() => deleteTask(task)}
+                            onToggleComplete={()=> toggleCompleteTask(task)}
+
                         />
                     ))}
                 </div>

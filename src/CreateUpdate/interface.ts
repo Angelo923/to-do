@@ -1,5 +1,6 @@
 export interface ITaskform {
     id: string;
     content: string;
-    isChecked: boolean;
+    onDeleteTask: string;
+    completed: boolean;
 }

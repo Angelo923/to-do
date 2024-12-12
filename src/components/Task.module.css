@@ -21,18 +21,18 @@
     border: 2px solid var(--blue);
     appearance: none;
     -webkit-appearance: none;
-    outline: none;
     cursor: pointer;
     background-color: transparent; /* Fundo inicial transparente */
     position: relative; /* Necessário para o pseudo-elemento */
+    outline-color: var(--purple-dark);
 }
 
 .inputCheckBox:checked {
     background-color: var(--purple-dark); /* Fundo ao ser selecionado */
     border-color: var(--purple-dark);
+    outline-color: var(--purple-dark);
 }
-
-/* Pseudo-elemento para o "V" de checked */
+    /* Pseudo-elemento para o "V" de checked */
 .inputCheckBox:checked::after {
     content: ''; /* Elemento vazio para representar o "V" */
     position: absolute;
@@ -43,24 +43,34 @@
     border: solid white; /* Cor do "V" */
     border-width: 0 0 2px 2px; /* Apenas bordas inferiores e esquerdas */
     transform: translate(-50%, -50%) rotate(-45deg); /* Centraliza e rotaciona */
+    outline-color: var(--purple-dark);
 }
 
 .taskContainer {
     display: flex;
-    flex-wrap: wrap; /* Permite que as divs se movam para a linha abaixo */
+    flex-wrap: wrap; /* Permite que as divs passem para a próxima linha */
     gap: 1rem; /* Espaçamento entre linhas e colunas */
     padding: 0 1rem 0 1rem;
+    max-width: 100%; /* Limita a largura do contêiner */
+}
+
+.taskContent {
+    flex-basis: 0; /* Permite que o conteúdo diminua */
+    flex-grow: 1; /* Permite que o conteúdo cresça */
+    max-width: 100%; /* Limita a largura do conteúdo */
+    overflow-wrap: break-word; /* Quebra o conteúdo em novas linhas */
+    word-break: break-all; /* Quebra o conteúdo em qualquer caractere */
 }
 
 .deleteTask button {
     background: transparent;
-    border: 0;
     color: var(--gray-300);
     line-height: 0;
     border-radius: 2px;
     cursor: pointer;
-    border: none;
+    border: 0;
     vertical-align: middle;
+    outline-color: var(--purple-dark);
 }
 
 .deleteTask button:hover {

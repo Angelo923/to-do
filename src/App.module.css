@@ -40,6 +40,8 @@ form {
     border: none;
     padding: 0 1rem;
     margin: 0; /* Remove margens indesejadas*/
+    outline-offset: 2px;
+    outline-color: var(--purple-dark);
 }
 
 .buttonTask {
@@ -56,6 +58,7 @@ form {
     gap: 0.3rem;
     margin: 0; /* Remove margens indesejadas */
     cursor: pointer;
+    outline-color: var(--purple-dark);
 }
 
 .taskArea {
